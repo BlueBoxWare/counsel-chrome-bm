@@ -1,0 +1,4 @@
+.cask/
+.dir-locals.el
+*.elc
+makem.sh

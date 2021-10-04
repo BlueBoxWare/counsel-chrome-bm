@@ -1,0 +1,173 @@
+{
+   "checksum": "75b89156871eedda9f915309f06abe2c",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13276265252419670",
+            "guid": "075479b1-a635-490a-9fe9-d884d10fb8e6",
+            "id": "13",
+            "name": "GNU Emacs - GNU Project",
+            "type": "url",
+            "url": "https://www.gnu.org/software/emacs/"
+         } ],
+         "date_added": "13274800162736814",
+         "date_modified": "13276265273579754",
+         "guid": "00000000-0000-4000-a000-000000000002",
+         "id": "1",
+         "{{#no-folder-names}}_{{/no-folder-names}}name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "{{#folder-without-children}}_{{/folder-without-children}}children": [ {
+               "date_added": "13276265128996545",
+               "guid": "368f2865-73a6-403a-bc58-f4c90881066a",
+               "id": "9",
+               "name": "GitHub: Where the world builds software · GitHub",
+               "type": "url",
+               "{{#no-urls}}_{{/no-urls}}url": "https://github.com/"
+            } ],
+            "date_added": "13276265064199011",
+            "date_modified": "13276265147556351",
+            "guid": "7e825b70-c9a2-4f24-a230-d1667d801c76",
+            "id": "5",
+            "{{#no-folder-names}}_{{/no-folder-names}}name": "folder1",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13276265168972135",
+                  "guid": "a4c12e2b-42ce-49fa-adb6-2b5d38ae5df6",
+                  "id": "11",
+                  "{{#no-url-names}}_{{/no-url-names}}name": "The Chromium Projects",
+                  "type": "url",
+                  "url": "https://www.chromium.org/"
+               } ],
+               "date_added": "13276265094238001",
+               "date_modified": "13276265202140063",
+               "guid": "e6273a26-fd4c-46ce-baee-13b9a3fa8b90",
+               "id": "7",
+               "name": "subfolder1",
+               "type": "folder"
+            },{
+            "children": [ {
+               "children": [  {
+            "date_added": "13276265273579754",
+            "guid": "2177b3fd-0d72-4de9-b394-8c1cf4c47555",
+            "id": "14",
+            "name": "イロハニホヘト חברה น่าฟังเอย - unicode",
+            "type": "url",
+            "url": "http://Γαζέες.⠙⠊⠌⠥⠗⠃░░▒▒▓▓██"
+         }],
+               "date_added": "13276265094238001",
+               "date_modified": "13276265202140063",
+               "guid": "e6273a26-fd4c-46ce-baee-13b9a3fa8b90",
+               "id": "7",
+               "name": "░⠗⠃イ",
+               "type": "folder"
+            }, {
+               "children": [ {
+                  "date_added": "13276265202140063",
+                  "guid": "4415a053-ed18-43b9-9517-ca60b7b7e086",
+                  "id": "12",
+                  "name": "Wikipedia",
+                  "{{#no-types}}_{{/no-types}}type": "url",
+                  "url": "https://www.wikipedia.org/"
+               } ],
+               "date_added": "13276265103581696",
+               "date_modified": "13276265252419670",
+               "guid": "a0c4002a-e77d-4974-b994-78c74ea4f88e",
+               "id": "8",
+               "{{#no-folder-names}}_{{/no-folder-names}}name": "subfolder2",
+               "type": "folder"
+            }, {
+               "date_added": "13276265147556351",
+               "guid": "ee9c1440-1a8f-4fd7-bc61-40ba8733b58a",
+               "id": "10",
+               "{{#no-url-names}}_{{/no-url-names}}name": "Google",
+               "type": "url",
+               "url": "https://www.google.com/"
+            }, {
+               "date_added": "13276265147556351",
+               "guid": "ee9c1440-1a8f-4fd7-bc61-40ba8733b58a",
+               "id": "10",
+               "name": "Http",
+               "type": "url",
+               "url": "https://example.com/http://"
+            } ],
+            "date_added": "13276265082773988",
+            "date_modified": "13276265168972135",
+            "guid": "74ecbc64-9d60-4d89-9213-fddc64948176",
+            "id": "6",
+            "name": "folder2",
+            "{{#no-types}}_{{/no-types}}type": "folder"
+         }, {
+               "children": [ {
+                  "date_added": "13276265202140063",
+                  "guid": "4415a053-ed18-43b9-9517-ca60b7b7e086",
+                  "id": "12",
+                  "name": "Wikipedia",
+                  "{{#no-types}}_{{/no-types}}type": "url",
+                  "url": "https://www.wikipedia.org/"
+               } ],
+               "date_added": "13276265103581696",
+               "date_modified": "13276265252419670",
+               "guid": "a0c4002a-e77d-4974-b994-78c74ea4f88e",
+               "id": "8",
+               "{{#no-folder-names}}_{{/no-folder-names}}name": "subfolder2",
+               "type": "folder"
+            }, {
+               "date_added": "13276265147556351",
+               "guid": "ee9c1440-1a8f-4fd7-bc61-40ba8733b58a",
+               "id": "10",
+               "{{#no-url-names}}_{{/no-url-names}}name": "Google",
+               "type": "url",
+               "url": "https://www.google.com/"
+            } ],
+            "date_added": "13276265082773988",
+            "date_modified": "13276265168972135",
+            "guid": "74ecbc64-9d60-4d89-9213-fddc64948176",
+            "id": "6",
+            "name": "folder2",
+            "type": "folder"
+         }, {
+            "date_added": "13276265273579754",
+            "guid": "2177b3fd-0d72-4de9-b394-8c1cf4c47555",
+            "id": "14",
+            "name": "MELPA",
+            "type": "url",
+            "{{#no-urls}}_{{/no-urls}}url": "https://melpa.org/#/"
+         } ],
+         "date_added": "13274800162736817",
+         "date_modified": "13276265279083410",
+         "guid": "00000000-0000-4000-a000-000000000003",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [ {
+            "date_added": "13276265273579754",
+            "guid": "2177b3fd-0d72-4de9-b394-8c1cf4c47555",
+            "id": "14",
+            "name": "\"'#:/[]{}%$\";;'\u003C>| - one occurrence of quotes",
+            "type": "url",
+            "url": "http://%22%27/#:/[]{}%$%22%22;;%60'%3C%3E|"
+         }, {
+            "date_added": "13276265273579754",
+            "guid": "2177b3fd-0d72-4de9-b394-8c1cf4c47555",
+            "id": "14",
+            "name": "\"'#:/[]{}%%$\"\"\"\";;'''\u003C>| - multiple occurrences of quotes",
+            "type": "url",
+            "url": "http://%22%27/#:/[]{}%$%22%22;;%60'%3C%3E|"
+         }  ],
+         "date_added": "13274800162736820",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
