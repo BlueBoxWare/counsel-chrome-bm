@@ -510,7 +510,7 @@ The bookmarks will be shown in columnar format.  Should be called after
                              (counsel-chrome-bm--split-and-call
                               #'counsel-chrome-bm--insert-url x))
                           "insert url")
-                         ("o"
+                         ("O"
                           ,(lambda (x)
                              (counsel-chrome-bm--split-and-call
                               #'counsel-chrome-bm--open x))
