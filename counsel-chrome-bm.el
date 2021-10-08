@@ -213,6 +213,8 @@ Does nothing if `markdown-insert-inline-link' is unavailable."
 ;;;
 (defconst counsel-chrome-bm--separator ?\x1C)
 
+(defvar counsel-chrome-bm--initialized nil)
+
 (defvar counsel-chrome-bm--last-cmd "")
 
 (defvar counsel-chrome-bm--no-jq-message-shown nil)
@@ -415,6 +417,7 @@ Search for STR, ignore ignore-lists."
 (defun counsel-chrome-bm--read (all caller)
   "Setup and run `ivy-read' on behalf of CALLER.
 Ignore ignore-lists if ALL is non-nil."
+  (unless counsel-chrome-bm--initialized (counsel-chrome-bm-initialize))
   (counsel-chrome-bm--check-for-problems)
   (let* ((jq (counsel-chrome-bm--jq))
          (use-jq (and jq (not counsel-chrome-bm-no-jq) (file-executable-p jq)))
@@ -496,30 +499,39 @@ The bookmarks will be shown in columnar format.  Should be called after
                                 (counsel-chrome-bm--url-only-transformer
                                  (:width 0.5)))))))
 
-;;;
-;;; Initialization
-;;;
+;;;###autoload
+(defun counsel-chrome-bm-initialize ()
+  "Initialize `counsel-chrome-bm'.
+Normally this command is automatically called when necessary. But if you want
+to configure your own extra actions with `ivy-set-actions', you'll have to make
+sure to call this command first, e.g.:
 
-;; Register configuration with ivy.
-(dolist (cmd '(counsel-chrome-bm counsel-chrome-bm-all))
-  (add-to-list 'ivy-more-chars-alist (cons cmd 0))
-  (ivy-configure cmd
-    :display-transformer-fn #'counsel-chrome-bm--transformer)
-  (ivy-set-actions cmd `(("i"
-                          ,(lambda (x)
-                             (counsel-chrome-bm--split-and-call
-                              #'counsel-chrome-bm--insert-url x))
-                          "insert url")
-                         ("O"
-                          ,(lambda (x)
-                             (counsel-chrome-bm--split-and-call
-                              #'counsel-chrome-bm--open x))
-                          "open")
-                         ("w"
-                          ,(lambda (x)
-                             (counsel-chrome-bm--split-and-call
-                              #'counsel-chrome-bm--copy-url x))
-                          "copy url"))))
+\(use-package counsel-chrome-bm
+  :config
+  (counsel-chrome-bm-initialize)
+  ;; Your config here
+)"
+  (interactive)
+  (dolist (cmd '(counsel-chrome-bm counsel-chrome-bm-all))
+    (add-to-list 'ivy-more-chars-alist (cons cmd 0))
+    (ivy-configure cmd
+      :display-transformer-fn #'counsel-chrome-bm--transformer)
+    (ivy-set-actions cmd `(("i"
+                            ,(lambda (x)
+                               (counsel-chrome-bm--split-and-call
+                                #'counsel-chrome-bm--insert-url x))
+                            "insert url")
+                           ("O"
+                            ,(lambda (x)
+                               (counsel-chrome-bm--split-and-call
+                                #'counsel-chrome-bm--open x))
+                            "open")
+                           ("w"
+                            ,(lambda (x)
+                               (counsel-chrome-bm--split-and-call
+                                #'counsel-chrome-bm--copy-url x))
+                            "copy url"))))
+  (setq counsel-chrome-bm--initialized t))
 
 (provide 'counsel-chrome-bm)
 

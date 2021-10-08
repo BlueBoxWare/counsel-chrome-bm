@@ -509,7 +509,7 @@ When ALL, do no ignoring.  When DO-NOT-SPLIT, don't split the results."
   (if (not (file-executable-p (counsel-chrome-bm--jq)))
       (error "Jq is required"))
 
-  (describe "Problems"
+  (describe "Miscellaneous"
 
     (it "No file defined"
       (expect (counsel-chrome-bm--test-with-file nil)
@@ -523,6 +523,14 @@ When ALL, do no ignoring.  When DO-NOT-SPLIT, don't split the results."
                 :to-throw)
         (expect counsel-chrome-bm--test-error
                 :to-match "Can not execute.*/foo")))
+
+    (it "Initializing"
+      (spy-on #'counsel-chrome-bm-initialize :and-call-through)
+      (setq counsel-chrome-bm--initialized nil)
+      (counsel-chrome-bm--test-with-template)
+      (expect #'counsel-chrome-bm-initialize :to-have-been-called-times 1)
+      (counsel-chrome-bm--test-with-template)
+      (expect #'counsel-chrome-bm-initialize :to-have-been-called-times 1))
 
     (it "Falling back to native JSON"
       (spy-on #'message)
@@ -541,8 +549,7 @@ When ALL, do no ignoring.  When DO-NOT-SPLIT, don't split the results."
       (let ((counsel-chrome-bm-no-jq t))
         (counsel-chrome-bm--test-with-template)
         (expect #'counsel-chrome-bm--read-native :to-have-been-called)
-        (expect #'message :not :to-have-been-called)
-        (pp counsel-chrome-bm--test-result)))
+        (expect #'message :not :to-have-been-called)))
 
     (it "Prefix and suffix set to nil"
       (let ((counsel-chrome-bm-url-prefix nil)
