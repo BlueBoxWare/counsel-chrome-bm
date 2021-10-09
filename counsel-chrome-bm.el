@@ -42,7 +42,7 @@
 ;; other hand it allows for fuzzy searching, which using jq does not.  If you
 ;; don't want to use jq even when available, set `counsel-chrome-bm-no-jq' to t.
 ;;
-;; Known supported browsers are: Chrome, Chromium, Vivaldi and Edge.
+;; Known supported browsers are: Chrome, Chromium, Vivaldi, Edge and Brave.
 ;; Known not working browsers are: Opera.
 
 ;;; Code:

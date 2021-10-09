@@ -13,7 +13,7 @@ doesn't provide fuzzy matching. Using Emacs' JSON-parsing can be slow when you h
 a lot of bookmarks or a large bookmark file (some browsers store icons in the
 bookmark file), but it uses Ivy's own (fuzzy) matching.
 
-Most Chromium-based browsers should work to, including Edge and Vivaldi. 
+Most Chromium-based browsers should work to, including Edge, Vivaldi and Brave. 
 Opera is currently not supported.
 
 `counsel-chrome-bm` respects the ignore lists `counsel-chrome-bm-ignore-folder`
@@ -24,19 +24,6 @@ After selecting a bookmark, a list of actions to choose from is shown, unless
 `counsel-chrome-bm-default-action` is set. Calling the commands with a prefix
 argument, the list of actions will always be shown, regardless of any default
 action.
-
-# With `ivy-rich`
-If you are using [`ivy-rich`](https://github.com/Yevgnen/ivy-rich) you can call 
-`counsel-chrome-bm-ivy-rich` *after* enabling ivy-rich to configure counsel-chrome-bm 
-to use a fancy columnar layout:
-
-```elisp
-(use-package ivy-rich
-  :after (counsel-chrome-bm)
-  :config
-  (ivy-rich-mode 1)
-  (counsel-chrome-bm-ivy-rich))
-```
 
 # Configuration
 
