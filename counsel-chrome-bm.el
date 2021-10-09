@@ -44,9 +44,6 @@
 ;;
 ;; Known supported browsers are: Chrome, Chromium, Vivaldi and Edge.
 ;; Known not working browsers are: Opera.
-;;
-;; When using `ivy-rich', call `counsel-chrome-bm-ivy-rich' after
-;; `ivy-rich-mode' is enabled to use a columnar layout for the bookmarks.
 
 ;;; Code:
 
@@ -486,31 +483,19 @@ When called with a prefix argument it will ignore
   (counsel-chrome-bm--read t 'counsel-chrome-bm-all))
 
 ;;;###autoload
-(defun counsel-chrome-bm-ivy-rich ()
-  "Configure `counsel-chrome-bm' to use `ivy-rich'.
-The bookmarks will be shown in columnar format.  Should be called after
-`ivy-rich' is enabled."
-  (interactive)
-  (if (fboundp 'ivy-rich-set-columns)
-      (dolist (cmd '(counsel-chrome-bm counsel-chrome-bm-all))
-        (ivy-rich-set-columns cmd
-                              '((counsel-chrome-bm--title-only-transformer
-                                 (:width 0.5))
-                                (counsel-chrome-bm--url-only-transformer
-                                 (:width 0.5)))))))
-
-;;;###autoload
 (defun counsel-chrome-bm-initialize ()
   "Initialize `counsel-chrome-bm'.
 Normally this command is automatically called when necessary. But if you want
-to configure your own extra actions with `ivy-set-actions', you'll have to make
-sure to call this command first, e.g.:
+to configure your own extra actions for `counsel-chrome-bm' with
+`ivy-set-actions' or `ivy-add-actions', you'll have to make sure to call this
+command first, e.g.:
 
 \(use-package counsel-chrome-bm
   :config
   (counsel-chrome-bm-initialize)
-  ;; Your config here
-)"
+  (ivy-set-actions 'counsel-chrome-bm '( <etc> ))
+
+The same goes for changing `ivy-more-chars-alist'."
   (interactive)
   (dolist (cmd '(counsel-chrome-bm counsel-chrome-bm-all))
     (add-to-list 'ivy-more-chars-alist (cons cmd 0))
@@ -530,7 +515,16 @@ sure to call this command first, e.g.:
                             ,(lambda (x)
                                (counsel-chrome-bm--split-and-call
                                 #'counsel-chrome-bm--copy-url x))
-                            "copy url"))))
+                            "copy url")))
+    (when (and (fboundp 'ivy-rich-set-columns) (fboundp 'ivy-rich-mode))
+        (dolist (cmd '(counsel-chrome-bm counsel-chrome-bm-all))
+          (ivy-rich-set-columns cmd
+                                '((counsel-chrome-bm--title-only-transformer
+                                   (:width 0.5))
+                                  (counsel-chrome-bm--url-only-transformer
+                                   (:width 0.5)))))
+        (ivy-rich-mode)
+        (ivy-rich-mode)))
   (setq counsel-chrome-bm--initialized t))
 
 (provide 'counsel-chrome-bm)
