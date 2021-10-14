@@ -13,7 +13,7 @@ doesn't provide fuzzy matching. Using Emacs' JSON-parsing can be slow when you h
 a lot of bookmarks or a large bookmark file (some browsers store icons in the
 bookmark file), but it uses Ivy's own (fuzzy) matching.
 
-Most Chromium-based browsers should work to, including Edge, Vivaldi and Brave. 
+Most Chromium-based browsers should work too, including Edge, Vivaldi and Brave. 
 Opera is currently not supported.
 
 `counsel-chrome-bm` respects the ignore lists `counsel-chrome-bm-ignore-folder`
