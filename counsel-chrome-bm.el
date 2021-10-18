@@ -74,11 +74,15 @@
                "~/.config/chromium"
                "$LOCALAPPDATA/Google/Chrome/User Data"
                "$LOCALAPPDATA/Chromium/User Data"
+               "$USERPROFILE/Local Settings/Application Data/Google/Chrome/User Data"
+               "$USERPROFILE/Local Settings/Application Data/Chromium/User Data"
                "$LOCALAPPDATA/Microsoft/Edge/User Data"
+               "$USERPROFILE/Local Settings/Application Data/Microsoft/Edge/User Data"
                "~/Library/Application Support/Google/Chrome"
                "~/Library/Application Support/Chromium"
                "~/.config/vivaldi"
                "$LOCALAPPDATA/Vivaldi/User Data"
+               "$USERPROFILE/Local Settings/Application Data/Vivaldi/User Data"
                "~/Library/Application Support/Vivaldi")))
   "The bookmarks file to use."
   :type 'file)
