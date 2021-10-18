@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 ;;
-;;   Soft requirement: jq (URL `https://stedolan.github.io/jq/').
+;;   Soft requirement: jq (URL <https://stedolan.github.io/jq/>).
 ;;   Counsel-chrome-bm will work without jq, but it will be slow when you have
 ;;   a lot of bookmarks.
 ;;
@@ -62,7 +62,7 @@
   :prefix "counsel-chrome-bm-")
 
 (defcustom counsel-chrome-bm-jq nil
-  "Path to jq (URL `https://stedolan.github.io/jq/') if jq is not on the PATH."
+  "Path to jq (URL <https://stedolan.github.io/jq/>) if jq is not on the PATH."
   :type 'file)
 
 (defcustom counsel-chrome-bm-file
