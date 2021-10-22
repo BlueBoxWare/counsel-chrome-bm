@@ -281,6 +281,39 @@ When ALL, do no ignoring.  When DO-NOT-SPLIT, don't split the results."
         (expect (counsel-chrome-bm--test-with-template :keys "org")
                 :to-contain-all should-include))))
 
+  (describe "Casing"
+    (it "Auto casing: case insensitive"
+      (let ((ivy-case-fold-search 'auto))
+        (expect (counsel-chrome-bm--test-with-template :keys "github")
+                :to-contain '("GitHub: Where the world builds software · GitHub"
+                              . "https://github.com/"))))
+
+    (it "Auto casing: case sensitive with match"
+      (let ((ivy-case-fold-search 'auto))
+        (expect (counsel-chrome-bm--test-with-template :keys "GitHub")
+                :to-contain '("GitHub: Where the world builds software · GitHub"
+                              . "https://github.com/"))))
+
+    (it "Auto casing: case sensitive without match"
+      (let ((ivy-case-fold-search 'auto))
+        (expect (counsel-chrome-bm--test-with-template :keys "GItHub")
+                :not :to-contain
+                '("GitHub: Where the world builds software · GitHub"
+                  . "https://github.com/"))))
+
+    (it "Case fold on"
+      (let ((ivy-case-fold-search-default t))
+        (expect (counsel-chrome-bm--test-with-template :keys "gItHUb:")
+                :to-contain '("GitHub: Where the world builds software · GitHub"
+                              . "https://github.com/"))))
+
+    (it "Case fold off"
+      (let ((ivy-case-fold-search-default nil))
+        (expect (counsel-chrome-bm--test-with-template :keys "github:")
+                :not :to-contain
+                '("GitHub: Where the world builds software · GitHub"
+                  . "https://github.com/")))))
+
   (describe "Special characters"
 
     (it "Searching for double quote"

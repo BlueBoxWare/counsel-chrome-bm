@@ -1,4 +1,4 @@
-;;; counsel-chrome-bm.el --- Browse your Chrom(e/ium) bookmarks with Ivy -*- lexical-binding: t; -*-
+;;; counsel-chrome-bm.el --- Browse Chrom(e/ium) bookmarks with Ivy -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021  BlueBoxWare
 
@@ -240,7 +240,6 @@ Ignore ignore lists if ALL is non nil."
               (alist-get 'children json))
         bookmarks)))
 
-
 (defun counsel-chrome-bm--read-bookmarks-from-json (json all)
   "Read bookmarks from JSON.
 Ignore ignore lists if ALL is non nil."
@@ -258,7 +257,10 @@ Ignore ignore lists if ALL is non nil."
 (defun counsel-chrome-bm--create-cmd (all str)
   "Create jq query command with search string STR.
 Ignore ignore lists if ALL is non nil."
-  (let ((search-string (json-encode-string str)))
+  (let* ((fold-case (counsel-chrome-bm--case-insensitive str))
+         (string (if fold-case (downcase str) str))
+         (search-string (json-encode-string string))
+         (down-case (if fold-case "ascii_downcase |" "")))
     (concat
      ".roots"
      (if (and counsel-chrome-bm-ignore-key (not all))
@@ -287,8 +289,8 @@ Ignore ignore lists if ALL is non nil."
      ") | select(.type != \"folder\") | "
      (if str
          (format
-          "select(((.name // \"\") | contains(%s)) or ((.url // \"\") | contains(%s))) | "
-          search-string search-string))
+          "select(((.name // \"\") | %s contains(%s)) or ((.url // \"\") | %s contains(%s))) | "
+          down-case search-string down-case search-string))
      " .name + \""
      (format "\\u%04x" counsel-chrome-bm--separator)
      "\" + .url ")))
@@ -307,6 +309,12 @@ Ignore ignore lists if ALL is non nil."
   "Split STR into a cons of title and url and pass it to FUNC."
   (let ((bm (counsel-chrome-bm--split str)))
     (funcall func (car bm) (cdr bm))))
+
+(defun counsel-chrome-bm--case-insensitive (str)
+  "Return non-nil if STR should be matched case-insensitively."
+  (if (eq ivy-case-fold-search 'auto)
+      (string= str (downcase str))
+    ivy-case-fold-search))
 
 (defun counsel-chrome-bm--transformer (str)
   "Ivy display transformer for `counsel-chrome-bm' and `counsel-chrome-bm-all'.
