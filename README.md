@@ -1,5 +1,7 @@
 Emacs package to browse Chrome bookmarks with [Ivy](https://github.com/abo-abo/swiper).
 
+> Available [on MELPA](https://melpa.org/#/counsel-chrome-bm).
+
 > :warning: Soft requirement: [`jq`](https://stedolan.github.io/jq/). 
 > Counsel-chrome-bm will work without jq, but it will be slow when you have a lot of bookmarks.
 
